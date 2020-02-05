@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#container > .col:first-child > h1 {
+    text-align: center;
+}
+
+#container > .col:first-child > p {
+    color: gray;
+    text-align: center;
+}
+
+#container {
+    width: 75%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+span.text-yellow {
+    color: yellow;
+}
+
+.col {
+    width: 500px;
+    max-width: 100%;
+    padding: 1em;
+}
+
+.card {
+    background-color: #212121;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.card * {
+    color: #FFFFFF;
+    font-family: 'Courier New',
+    Courier,
+    monospace;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.modern-select {
+    display: inline-block;
+}
+
+.my-custom-class {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    width: 300px;
+    max-width: 100%;
+    border-radius: 999rem;
+    padding-right: 50px;
+    height: 75px;
+}
+
+.modern-select--icon {
+    width: 50px;
+}
+
+.select-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.select-content div {
+    text-align: left;
+}
+
+.select-content p {
+    margin: 0;
+}
+
+.select-content small {
+    color: gray;
+}
+
+.modern-select img {
+    max-width: 50px;
+    border-radius: 999rem;
+    margin-right: 1em;
+}
+
+.fade-in {
+    animation-name: fade-in;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

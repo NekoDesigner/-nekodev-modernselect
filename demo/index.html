@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modern-select  | Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="../src/css/modernselect.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="col text-center">
+            <h1>Modern Select</h1>
+            <p>A modern select for customize your form</p>
+            <div class="modern-select" id="modern-select">
+                <div data-value="" data-placeholder>Select value</div>
+                <div data-value="1">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/0/200">
+                        <span>Computer</span>
+                    </div>
+                </div>
+                <div data-value="2">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/10/200">
+                        <span>Forest</span>
+                    </div>
+                </div>
+                <div data-value="3">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/237/200">
+                        <span>Dog</span>
+                    </div>
+                </div>
+                <div data-value="4">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/1001/200">
+                        <span>Sea</span>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="modern-select" id="modern-select-2">
+                <div data-value="" data-placeholder>Select value</div>
+                <div data-value="1">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/0/200">
+                        <div>
+                            <p>Computer</p>
+                            <small>The answer is 42</small>
+                        </div>
+                    </div>
+                </div>
+                <div data-value="2">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/10/200">
+                        <div>
+                            <p>Forest</p>
+                            <small>Enchanted wood !</small>
+                        </div>
+                    </div>
+                </div>
+                <div data-value="3">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/237/200">
+                        <div>
+                            <p>Dog</p>
+                            <small>My name is Hot Dog</small>
+                        </div>
+                    </div>
+                </div>
+                <div data-value="4">
+                    <div class="select-content">
+                        <img src="https://picsum.photos/id/1001/200">
+                        <div>
+                            <p>Sea</p>
+                            <small>Sea, sex and sun</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col card">
+            <code>Console</code>
+            <div id="description"></div>
+        </div>
+    </div>
+    <script src="../build/modernselect.js"></script>
+    <script>
+         let modernSelect = new ModernSelect("#modern-select", {
+            formName: "choice",
+            animation: "fade-in",
+            icon: `<i class="fas fa-arrow-down"></i>`,
+            customClass: "my-custom-class"
+         })
+
+         let modernSelect2 = new ModernSelect("#modern-select-2", {
+            formName: "choice_second",
+            animation: "fade-in",
+            icon: `<i class="fas fa-arrow-down"></i>`,
+            customClass: "my-custom-class"
+         })
+
+         modernSelect.on('change', function() {
+            add('change [var modernSelect]', "This event is triggered when user click on a value in the dropdown")
+         })
+         
+         modernSelect.on('close', function() {
+            add('close [var modernSelect]', "This event is triggered when user close the dropdown")
+         })
+         
+         modernSelect2.on('change', function() {
+            add('change [var modernSelect2]', "This event is triggered when user click on a value in the dropdown")
+         })
+         
+         modernSelect2.on('close', function() {
+            add('close [var modernSelect2]', "This event is triggered when user close the dropdown")
+         })
+
+         var x = 0
+         var description = document.getElementById('description')
+
+         function add(eventName, eventDescription) {
+             x++
+             if(x > 2) {
+                description.innerHTML = ""
+                x = 0
+            }
+            var p = document.createElement('p')
+            var span = document.createElement('span')
+            var content = document.createElement('p')
+            var hr = document.createElement('hr')
+
+            span.className = "text-yellow"
+
+            p.innerText = "Trigger event : "
+            span.innerText = eventName
+            content.innerText = eventDescription
+
+            p.appendChild(span)
+            description.appendChild(p)
+            description.appendChild(content)
+            description.appendChild(hr)
+         }
+
+    </script>
+</body>
+</html>
